@@ -17,7 +17,7 @@ export const ResultGallery = () => {
 
 const ResultGalleryWrapped = ({ objectIDs }) => {
     return (
-        <HStack height="245px" display="flex" flexDir="row" justifyContent="center" alignItems="flex-start">
+        <HStack height="230px" display="flex" flexDir="row" justifyContent="center" alignItems="flex-start">
             {
                 objectIDs.map((id, i) => <ResultGalleryItem key={i} objectID={id} />)
             }

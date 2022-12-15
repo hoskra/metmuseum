@@ -47,10 +47,10 @@ const RenderItem = ({ name, atribute }) => {
 
 const ResultDetailWidthData = ({ data }) => {
     return (
-        <Card p={2} >
-            <Grid templateColumns='1fr 3fr' gap={4} py={4} width="650px" mx="auto">
+        <Card p={2} mt={2}>
+            <Grid templateColumns='1fr 3fr' gap={4} py={4} mx="auto">
                 <GridItem colStart={1} colSpan={2}>
-                    <Heading as="h2" fontSize={32}>
+                    <Heading as="h2" fontSize={20}>
                         {data.title}
                         {data.isHighlight && <Tag ml={2} mt={2} colorScheme='green' variant='solid'>highlited</Tag>}
                     </Heading>

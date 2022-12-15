@@ -17,7 +17,7 @@ export const searchSlice = createSlice({
   reducers: {
     getObjectsSuccess: (state, action) => {
       state.found = action.payload.objectIDs.length
-      state.objectIDs = action.payload.objectIDs.slice(0,5)
+      state.objectIDs = action.payload.objectIDs.slice(0,4)
       state.error = null
       state.searched = true
     },

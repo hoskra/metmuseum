@@ -25,9 +25,6 @@ export async function getObjectsMatchingQuery(parameter, query) {
         case "artistOrCulture":
             url += `?${parameter}=true?q=${query}`
             break;
-        case "medium":
-            url += `?${parameter}=${query}&q=*`
-            break;
         case "geoLocation":
             url += `?${parameter}=${query}&q=*`
             break;

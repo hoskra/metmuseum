@@ -1,4 +1,4 @@
-import { Container, Input, Select, IconButton, VStack, HStack } from "@chakra-ui/react";
+import { Input, Select, IconButton, VStack, HStack } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { searchQuery, resetSearch } from './SearchSlice';
 import { resetDetail } from '../Result/ResultSlice';
 
-const options = [ 
+const options = [
     {
         name: "Title",
         parameter: "title",
@@ -20,11 +20,6 @@ const options = [
     {
         name: "Location",
         parameter: "geoLocation",
-        multiple: true
-    },
-    {
-        name: "Medium",
-        parameter: "medium",
         multiple: true
     },
     {
@@ -54,23 +49,20 @@ export const SearchComponent = () => {
         dispatch(searchQuery(options[option].parameter, text));
     }
 
-    return(
-        <Container>
-        <VStack pt={6}>
+    return (
+        <VStack>
             <HStack>
-                <Select onClick={handleSelect} width="200px" py={6}>
+                <Select onClick={handleSelect} size='sm'>
                     {options.map(((option, i) => <option value={i} key={i}>{option.name}</option>))}
                 </Select>
                 <Input autoFocus={true}
                     value={text}
-                    width="300px"
                     onChange={handleChange}
-                    size='md'
+                    size='sm'
                     onKeyDown={handleKeyDown}
-                    />
-                <IconButton icon={<SearchIcon />}onClick={handleSearch}></IconButton>
+                />
+                <IconButton size='sm' icon={<SearchIcon />} onClick={handleSearch}></IconButton>
             </HStack>
         </VStack>
-        </Container>
     )
 }

@@ -46,20 +46,19 @@ export const ResultGalleryItem = ({ objectID }) => {
                     <Image
                         src={data.primaryImage}
                         alt={data.title}
-                        borderRadius='lg'
-                        height="120px"
+                        height="100px"
                         mx="auto"
-                        py={2}
+                        pb={2}
                     />
                     :
-                    <Box height="120px" display="flex">
+                    <Box height="100px" display="flex">
                         <NotAllowedIcon w={10} h={10} color="#d7d7d7" className="not-allowed-icon" />
                     </Box>
                 }
             </div>
             <List>
                 <ListItem className="trim3">
-                    <Heading as="h6" fontSize={18}>{data.title}</Heading>
+                    <Heading as="h6" fontSize={16}>{data.title}</Heading>
                 </ListItem>
                 <ListItem className="trim2">{printIfAvailable(data.artistDisplayName)}</ListItem>
             </List>

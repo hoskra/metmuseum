@@ -3,6 +3,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { firstLetterInCapital } from '../../utils/index'
 import { searchQuery, resetSearch } from './SearchSlice';
 import { resetDetail } from '../Result/ResultSlice';
 
@@ -40,13 +41,13 @@ export const SearchComponent = () => {
         if (e.keyCode == 13) {
             dispatch(resetSearch);
             dispatch(resetDetail);
-            dispatch(searchQuery(options[option].parameter, text));
+            dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
         }
     }
     const handleSearch = e => {
         dispatch(resetSearch);
         dispatch(resetDetail);
-        dispatch(searchQuery(options[option].parameter, text));
+        dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
     }
 
     return (

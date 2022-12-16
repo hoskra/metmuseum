@@ -1,4 +1,4 @@
-import { Container, Text, Spinner } from "@chakra-ui/react"
+import { Container, Box, Text, Spinner } from "@chakra-ui/react"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
@@ -25,8 +25,10 @@ export const ResultStatus = ({ }) => {
     if (fetching)
         return (
             <Container py={4} display="flex">
-                <Text m="auto" fontSize="15px" color="gray">Quering for artefact details ..</Text>
-                <Spinner ml={2} size='sm' />
+                <Box m="auto" display="flex">
+                    <Text fontSize="15px" color="gray">Quering for artefact details ..</Text>
+                    <Spinner ml={2} size='sm' />
+                </Box>
             </Container>
         )
 

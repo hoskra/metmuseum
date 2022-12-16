@@ -1,6 +1,10 @@
 {
-  "name": "metmuseum-viz",
+  "name": "metmuseum",
+  "author": {
+    "name": "hoskra"
+  },
   "private": true,
+  "license" : "SEE LICENSE IN LICENSE",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

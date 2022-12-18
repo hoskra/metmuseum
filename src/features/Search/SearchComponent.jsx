@@ -38,16 +38,18 @@ export const SearchComponent = () => {
     const handleSelect = e => setOption(e.target.value)
     const handleChange = e => setText(e.target.value)
     const handleKeyDown = e => {
-        if (e.keyCode == 13) {
+        if (e.keyCode == 13 && text) {
             dispatch(resetSearch);
             dispatch(resetDetail);
             dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
         }
     }
     const handleSearch = e => {
-        dispatch(resetSearch);
-        dispatch(resetDetail);
-        dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
+        if(text) {
+            dispatch(resetSearch);
+            dispatch(resetDetail);
+            dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
+        }
     }
 
     return (

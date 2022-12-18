@@ -26,7 +26,7 @@ export const ResultStatus = ({ }) => {
         return (
             <Container py={4} display="flex">
                 <Box m="auto" display="flex">
-                    <Text fontSize="15px" color="gray">Quering for artefact details ..</Text>
+                    <Text fontSize="15px" color="gray">Searching artefacts matching given query ..</Text>
                     <Spinner ml={2} size='sm' />
                 </Box>
             </Container>

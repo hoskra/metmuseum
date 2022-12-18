@@ -46,12 +46,12 @@ export const ResultGalleryItem = ({ objectID }) => {
                     <Image
                         src={data.primaryImage}
                         alt={data.title}
-                        height="100px"
+                        height="90px"
                         mx="auto"
                         pb={2}
                     />
                     :
-                    <Box height="100px" display="flex">
+                    <Box height="90px" display="flex">
                         <NotAllowedIcon w={10} h={10} color="#d7d7d7" className="not-allowed-icon" />
                     </Box>
                 }

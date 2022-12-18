@@ -6,32 +6,39 @@ import { printIfAvailable } from '../../utils/index'
 import { isDetailLoading, selectDetail, isError } from './ResultSlice'
 import './styles.css'
 
+const LoadingContent = () => {
+    return <Card p={2} height="300px">
+        <Box width="300px" m="auto" display="flex">
+            <Text>Quering for artefact details ...</Text>
+            <Spinner ml={2} size='sm' />
+        </Box>
+    </Card>
+}
+
+const QueringFailed = () => {
+    return <Card p={2} height="200px">
+        <Text m="auto" width="300px" >
+            Quering details for selected artefact failed.
+        </Text>
+    </Card>
+}
+
+
 export const ResultDetail = () => {
     const loding = useSelector(isDetailLoading)
     const data = useSelector(selectDetail)
     const error = useSelector(isError)
 
-    if (loding) {
-        return <Card p={2} height="300px">
-            <Box width="300px" m="auto" display="flex">
-                <Text>Quering for artefact details ...</Text>
-                <Spinner ml={2} size='sm' />
-            </Box>
-        </Card>
-    } else if (error) {
-        return <Card p={2} height="200px">
-            <Text m="auto" width="300px" >
-                Quering details for selected artefact failed.
-            </Text>
-        </Card>
-    } else if (data == null) {
-        return (<></>)
-    } else {
-        return <ResultDetailWidthData data={data} />
-    }
+    return (
+        <>
+            {loding && <LoadingContent />}
+            {error && <QueringFailed />}
+            {(data && !loding) && <ResultDetailWidthData data={data} />}
+        </>
+    )
 }
 
-const RenderItem = ({ name, atribute }) => {
+const DataRecord = ({ name, atribute }) => {
     if (atribute)
         return (
             <>
@@ -68,13 +75,13 @@ const ResultDetailWidthData = ({ data }) => {
                         </div>
                     </GridItem>
                 }
-                <RenderItem name={"Author name"} atribute={data.artistDisplayName} />
-                <RenderItem name={"Department"} atribute={data.department} />
-                <RenderItem name={"Culture"} atribute={data.culture} />
-                <RenderItem name={"Country"} atribute={data.country} />
-                <RenderItem name={"City"} atribute={data.city} />
-                <RenderItem name={"Medium"} atribute={data.medium} />
-                <RenderItem name={"Dimensions"} atribute={data.dimensions} />
+                <DataRecord name={"Author name"} atribute={data.artistDisplayName} />
+                <DataRecord name={"Department"} atribute={data.department} />
+                <DataRecord name={"Culture"} atribute={data.culture} />
+                <DataRecord name={"Country"} atribute={data.country} />
+                <DataRecord name={"City"} atribute={data.city} />
+                <DataRecord name={"Medium"} atribute={data.medium} />
+                <DataRecord name={"Dimensions"} atribute={data.dimensions} />
                 {(data.objectURL && data.artistWikidata_URL) && <>
                     <GridItem colStart={1}>
                         <Heading as="h3" fontSize={16}>

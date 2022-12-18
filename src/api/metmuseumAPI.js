@@ -1,35 +1,37 @@
 import axios from 'axios'
 
+const BASE_URL = 'https://collectionapi.metmuseum.org/public/collection/v1'
+
 export async function getTotal() {
-    const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects`
-    const { data } = await axios.get(url)
+    const { data } = await axios.get(`${BASE_URL}/objects`)
+
     return data.total
 }
 
 export async function getObject(id) {
-    const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
-    const { data } = await axios.get(url)
+    const { data } = await axios.get(`${BASE_URL}/objects/${id}`)
+
     return data
 }
 
 export async function getObjectsMatchingQuery(parameter, query) {
-    let url = "https://collectionapi.metmuseum.org/public/collection/v1/search";
+    let url;
 
     switch(parameter) {
         case "title":
-            url += `?${parameter}=true?q=${query}`
+            url = `${BASE_URL}/search?${parameter}=true?q=${query}`
             break;
         case "tags":
-            url += `?${parameter}=true?q=${query}`
+            url = `${BASE_URL}/search?${parameter}=true?q=${query}`
             break;
         case "artistOrCulture":
-            url += `?${parameter}=true?q=${query}`
+            url = `${BASE_URL}/search?${parameter}=true?q=${query}`
             break;
         case "geoLocation":
-            url += `?${parameter}=${query}&q=*`
+            url = `${BASE_URL}/search?${parameter}=${query}&q=*`
             break;
         default:
-            url += `?q=${query}`
+            url = `${BASE_URL}/search?q=${query}`
             break;
     }
     
@@ -40,8 +42,7 @@ export async function getObjectsMatchingQuery(parameter, query) {
 }
 
 export async function getDepartments() {
-    const url = `https://collectionapi.metmuseum.org/public/collection/v1/departments`
+    const { data } = await axios.get(`${BASE_URL}/departments`)
 
-    const { data } = await axios.get(url)
     return data
 }

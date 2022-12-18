@@ -4,9 +4,17 @@ Simple viewer of [Metropolitan Museum of Art](https://www.metmuseum.org/) API.
 
 See the [API](https://metmuseum.github.io/) for more information.
 
+## Development instructions
+
+```
+npm run install
+
+npm run dev
+```
+
 ## Technical details
 
-- Project was created using `npm create vite@latest my-vue-app --template react`.
+- Project was created using `npm create vite@latest metmuseum --template react`.
 - [Vite](https://vitejs.dev/) is used as a module bundler.
 - [Redux toolkit](https://redux-toolkit.js.org/) is used as a state management tool.
 - Frontend is written in [React](https://reactjs.org/).

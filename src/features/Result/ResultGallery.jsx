@@ -21,13 +21,13 @@ const ResultGalleryWrapped = ({ objectIDs }) => {
     const totalPageCount = useSelector(selectTotalPageCount)
     const currentPage = useSelector(selectCurrentPage)
 
-    const handleLeftClick = () => dispatch(previousPage())
-    const handleRightClick = () => dispatch(nextPage())
+    const handlePrev = () => dispatch(previousPage())
+    const handleNext = () => dispatch(nextPage())
 
     return (
         <HStack display="block" position="relative">
             <IconButton 
-                onClick={handleLeftClick}
+                onClick={handlePrev}
                 position="absolute" 
                 top="100px" 
                 left="-40px"
@@ -45,7 +45,7 @@ const ResultGalleryWrapped = ({ objectIDs }) => {
                 }
             </HStack>
             <IconButton 
-                onClick={handleRightClick}
+                onClick={handleNext}
                 position="absolute" 
                 top="100px" 
                 right="-40px"

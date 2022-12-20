@@ -25,3 +25,8 @@
     margin-inline-start: 0 !important;
     margin-left: 0;
 }
+
+.tags {
+    margin-inline-start: 0 !important; 
+    margin: 0 3px 3px 0 !important;
+}

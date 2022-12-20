@@ -55,21 +55,21 @@ const DataRecord = ({ name, atribute }) => {
 const ResultDetailWidthData = ({ data }) => {
     return (
         <Card p={2} mt={2}>
-            <Grid templateColumns='1fr 3fr' gap={4} mx="auto">
-                <GridItem colStart={1} colSpan={2} display="flex">
+            <Grid templateColumns='1fr 3fr' gap={4} mx="auto" minWidth="100%">
+                <GridItem colStart={1} colSpan={2} display="flex" maxWidth="507px">
                     <Heading as="h2" fontSize={20} mr={2}>
                         {data.title}
                     </Heading>
                     {data.isHighlight && 
-                        <Tag colorScheme='green' variant='solid' >
+                        <Tag colorScheme='green' minWidth="68px" maxHeight="22px" variant='solid' >
                         highlited
                         </Tag>}
                 </GridItem>
-                {data.primaryImage &&
+                {data.primaryImageSmall &&
                     <GridItem colStart={2}>
                         <div height="150px" width="100%" >
                             <Image
-                                src={data.primaryImage}
+                                src={data.primaryImageSmall}
                                 alt={data.title}
                                 borderRadius='lg'
                                 height="150px"
@@ -117,9 +117,9 @@ const ResultDetailWidthData = ({ data }) => {
                         </Text>
                     </GridItem>
                     <GridItem colStart={2}>
-                        <HStack spacing={2}>
+                        <HStack spacing={2} display="block" >
                             {data.tags.map((tag, i) => (
-                                <Tag key={i} variant='solid' colorScheme='teal'>
+                                <Tag key={i} variant='solid' className="tags" colorScheme='teal'>
                                     {tag.term}
                                 </Tag>
                             ))}

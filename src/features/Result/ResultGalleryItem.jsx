@@ -42,9 +42,9 @@ export const ResultGalleryItem = ({ objectID }) => {
             onClick={handleClick}
         >
             <div height="100px" width="100%">
-                {data.primaryImage ?
+                {data.primaryImageSmall ?
                     <Image
-                        src={data.primaryImage}
+                        src={data.primaryImageSmall}
                         alt={data.title}
                         height="90px"
                         mx="auto"

@@ -4,7 +4,7 @@
     "name": "hoskra"
   },
   "private": true,
-  "license" : "SEE LICENSE IN LICENSE",
+  "license": "SEE LICENSE IN LICENSE",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +15,9 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",
     "@chakra-ui/react": "^2.4.3",
+    "@fontsource/cormorant-garamond": "^4.5.10",
+    "@fontsource/lato": "^4.5.10",
+    "@fontsource/yeseva-one": "^4.5.10",
     "@reduxjs/toolkit": "^1.9.1",
     "react": "^18.2.0",
     "react-axios": "^2.0.6",

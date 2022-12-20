@@ -43,9 +43,9 @@ const DataRecord = ({ name, atribute }) => {
         return (
             <>
                 <GridItem colStart={1}>
-                    <Heading as="h3" fontSize={16}>
+                    <Text fontWeight="bold" fontSize={16}>
                         {name}
-                    </Heading>
+                    </Text>
                 </GridItem>
                 <GridItem colStart={2}>{printIfAvailable(atribute)}</GridItem>
             </>
@@ -55,12 +55,15 @@ const DataRecord = ({ name, atribute }) => {
 const ResultDetailWidthData = ({ data }) => {
     return (
         <Card p={2} mt={2}>
-            <Grid templateColumns='1fr 3fr' gap={4} py={4} mx="auto">
-                <GridItem colStart={1} colSpan={2}>
-                    <Heading as="h2" fontSize={20}>
+            <Grid templateColumns='1fr 3fr' gap={4} mx="auto">
+                <GridItem colStart={1} colSpan={2} display="flex">
+                    <Heading as="h2" fontSize={20} mr={2}>
                         {data.title}
-                        {data.isHighlight && <Tag ml={2} mt={2} colorScheme='green' variant='solid'>highlited</Tag>}
                     </Heading>
+                    {data.isHighlight && 
+                        <Tag colorScheme='green' variant='solid' >
+                        highlited
+                        </Tag>}
                 </GridItem>
                 {data.primaryImage &&
                     <GridItem colStart={2}>
@@ -84,20 +87,24 @@ const ResultDetailWidthData = ({ data }) => {
                 <DataRecord name={"Dimensions"} atribute={data.dimensions} />
                 {(data.objectURL && data.artistWikidata_URL) && <>
                     <GridItem colStart={1}>
-                        <Heading as="h3" fontSize={16}>
+                        <Text fontWeight="bold" fontSize={16}>
                             Available Links
-                        </Heading>
+                        </Text>
                     </GridItem>
                     <GridItem colStart={2}>
                         <List>
                             {data.objectURL &&
                                 <ListItem>
-                                    <Link href={data.objectURL} isExternal>Object URL<ExternalLinkIcon mx='2px' /></Link>
+                                    <Link display="flex" href={data.objectURL} isExternal>Object URL
+                                    <ExternalLinkIcon mt={1} ml={1} />
+                                    </Link>
                                 </ListItem>
                             }
                             {data.artistWikidata_URL &&
                                 <ListItem>
-                                    <Link href={data.artistWikidata_URL} isExternal>Artist Wikidata URL<ExternalLinkIcon mx='2px' /></Link>
+                                    <Link display="flex" href={data.artistWikidata_URL} isExternal>Artist Wikidata URL
+                                    <ExternalLinkIcon mt={1} ml={1} />
+                                    </Link>
                                 </ListItem>
                             }
                         </List>
@@ -105,9 +112,9 @@ const ResultDetailWidthData = ({ data }) => {
 
                 {data.tags && <>
                     <GridItem colStart={1}>
-                        <Heading as="h3" fontSize={16}>
+                        <Text as="h3" fontWeight="bold" fontSize={16}>
                             Tags
-                        </Heading>
+                        </Text>
                     </GridItem>
                     <GridItem colStart={2}>
                         <HStack spacing={2}>

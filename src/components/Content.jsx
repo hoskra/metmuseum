@@ -1,17 +1,18 @@
 import { Container } from "@chakra-ui/react"
 
-import { ResultDetail } from "../features/Result/ResultDetail";
-import { ResultGallery } from "../features/Result/ResultGallery";
+import { ArtefactTable } from "../features/ArtefactTable/ArtefactTable";
 import { ResultStatus } from "../features/Result/ResultStatus";
 import { SearchComponent } from "../features/Search/SearchComponent";
 
 export const Content = () => {
     return (
-        <Container>
+        <Container
+            maxWidth="1000px"
+            w={{sm:'400px', md:'760px', lg:'950px', xl:'1200px'}}
+        >
             <SearchComponent />
             <ResultStatus />
-            <ResultGallery />
-            <ResultDetail />
+            <ArtefactTable />
         </Container>
     )
 }

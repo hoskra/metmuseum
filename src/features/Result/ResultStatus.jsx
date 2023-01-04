@@ -18,7 +18,7 @@ export const ResultStatus = ({ }) => {
     if (error)
         return (
             <Container py={4} display="flex">
-                <Text m="auto" fontSize="15px" color="metmusem.gray">Could not retrieve any data.</Text>
+                <Text m="auto" fontSize="sm" color="metmusem.gray">Could not retrieve any data.</Text>
             </Container>
         )
 
@@ -26,7 +26,7 @@ export const ResultStatus = ({ }) => {
         return (
             <Container py={4} display="flex">
                 <Box m="auto" display="flex">
-                    <Text fontSize="15px" color="metmusem.gray">Searching artefacts matching given query ..</Text>
+                    <Text fontSize="sm" color="metmusem.gray">Searching artefacts matching given query ..</Text>
                     <Spinner ml={2} size='sm' />
                 </Box>
             </Container>
@@ -35,7 +35,7 @@ export const ResultStatus = ({ }) => {
     if (search)
         return (
             <Container py={4} display="flex">
-                <Text m="auto" fontSize="15px" color="metmusem.gray">{found} out of total {total} artefacts match the query.</Text>
+                <Text m="auto" fontSize="sm" color="metmusem.gray">{found} out of total {total} artefacts match the query.</Text>
             </Container>
         )
 }

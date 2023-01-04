@@ -1,0 +1,22 @@
+.paginationSelect {
+  -webkit-padding-end: 28px !important;;
+  -webkit-padding-start: 11px !important;;
+}
+
+.artefactDetailCard {
+  columns: 2;
+  -webkit-columns: 2;
+}
+
+.tags {
+  margin-inline-start: 0 !important; 
+  padding: 0;
+  margin: 0 3px 3px 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .artefactDetailCard {
+    columns: 1;
+    -webkit-columns: 1;
+  }
+}

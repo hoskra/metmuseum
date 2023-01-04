@@ -26,3 +26,7 @@ Another projects using the API or exploring the dataset.
 
 - https://towardsdatascience.com/metropolitan-museum-of-art-data-analysis-and-visualization-7d1d023c68fe
 - https://github.com/mgoetzke/MappingTheMet
+
+## TODO, Known issues
+
+- If one object request fails, whole table is not loaded ( e.g. Artist or Culture - David Roentgen )

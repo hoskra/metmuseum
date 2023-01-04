@@ -1,11 +1,10 @@
 import { Input, Select, IconButton, VStack, HStack } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { firstLetterInCapital } from '../../utils/index'
-import { searchQuery, resetSearch } from './SearchSlice';
-import { resetDetail } from '../Result/ResultSlice';
+import { setOption, searchQuery, resetSearch, selectOption, selectSearchedTerm, setSearchedTerm } from './SearchSlice';
 
 const options = [
     {
@@ -31,23 +30,32 @@ const options = [
 ]
 
 export const SearchComponent = () => {
-    const [option, setOption] = useState(0)
+    const stateOption = useSelector(selectOption);
+    const searchedTerm = useSelector(selectSearchedTerm);
+    const [option, setLocalOption] = useState(0)
     const [text, setText] = useState('')
     const dispatch = useDispatch()
 
-    const handleSelect = e => setOption(e.target.value)
-    const handleChange = e => setText(e.target.value)
+    useEffect(() => setLocalOption(stateOption), [stateOption])
+    useEffect(() => setText(searchedTerm), [searchedTerm])
+
+    const handleSelect = e => {
+        setLocalOption(e.target.value)
+        setOption(e.target.value)
+    }
+    const handleChange = e => {
+        setSearchedTerm(e.target.value)
+        setText(e.target.value)
+    }
     const handleKeyDown = e => {
         if (e.keyCode == 13 && text) {
             dispatch(resetSearch);
-            dispatch(resetDetail);
             dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
         }
     }
     const handleSearch = e => {
-        if(text) {
+        if (text) {
             dispatch(resetSearch);
-            dispatch(resetDetail);
             dispatch(searchQuery(options[option].parameter, firstLetterInCapital(text)));
         }
     }
@@ -55,7 +63,7 @@ export const SearchComponent = () => {
     return (
         <VStack>
             <HStack>
-                <Select onClick={handleSelect} size='sm'>
+                <Select onChange={handleSelect} size='sm' value={option}>
                     {options.map(((option, i) => <option value={i} key={i}>{option.name}</option>))}
                 </Select>
                 <Input autoFocus={true}
